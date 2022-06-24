@@ -5,7 +5,8 @@ const List = () => {
     const [todos, setToDos] = useState<ToDo[]>();
     
     const fetchToDos = async () => {
-        const request = await fetch("https://localhost:7039/api/ToDo")
+        // const request = await fetch("https://localhost:7039/api/ToDo")
+        const request = await fetch("https://todoby.azurewebsites.net/api/ToDo")
         const response = await request.json();
         console.log(response);
         setToDos(response);
