@@ -1,12 +1,17 @@
 import React from 'react';
 import './App.css';
-import List from "./components/ToDoList";
+import ToDoGallery from "./components/TodoGallery";
+import UserGallery from "./components/UserGallery";
+import ListGallery from './components/ListGallery';
+import SubGallery from './components/SubGallery';
 
 const App = () => {
   return (
     <div className="App">
-      hello
-      <List/>
+      <ToDoGallery/>
+      <ListGallery/>
+      <UserGallery/>
+      <SubGallery/>
     </div>
   );
 }
