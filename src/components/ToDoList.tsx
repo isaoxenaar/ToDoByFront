@@ -3,7 +3,7 @@ import { ToDo } from "../Types/ToDo";
 
 const List = () => {
     const [todos, setToDos] = useState<ToDo[]>();
-    const header = new Headers({ "Access-Control-Allow-Origin": "*" });
+    // const header = new Headers({ "Access-Control-Allow-Origin": "*" });
 
     const fetchToDos = async () => {
         // const request = await fetch("https://localhost:7039/api/ToDo")
