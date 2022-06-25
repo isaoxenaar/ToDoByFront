@@ -4,7 +4,8 @@ type UserType = {
     id: number, 
     name: string,
     password: string,
-    tdlists: ListType[],
+    email: string,
+    tdLists: ListType[],
 }
 
 export type { UserType }

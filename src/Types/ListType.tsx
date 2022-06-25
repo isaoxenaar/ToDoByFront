@@ -5,7 +5,7 @@ type ListType = {
     title: string,
     totalcost: number, 
     todoitems: ToDoType[],
-    userid: number
+    userId: number
 }
 
 export type { ListType }
