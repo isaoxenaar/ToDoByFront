@@ -30,3 +30,5 @@ sync up with BE as I regain connection
 family shopping-list together
 ● I as a user can see the cursor and/or selection of another-user as he selects/types when
 they are editing text - so that we can discuss focused words during our online call.
+
+today: user auth, 

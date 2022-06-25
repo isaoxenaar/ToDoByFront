@@ -12,8 +12,20 @@ const UserGallery = () => {
         setUser(response);
     }
     
+    const createUser = async () => {
+        const user = {name: "michal"}
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        };
+        const request = await fetch("https://todoby.azurewebsites.net/api/User", requestOptions)
+    }
+    
     useEffect(() => {
         fetchUsers();
+        createUser();
     }, [])
 
         if(!users)
