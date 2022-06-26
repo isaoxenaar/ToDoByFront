@@ -1,4 +1,5 @@
 import React from 'react';
+import "../CSS/SubCard.css";
 
 const SubCard = () => {
   return (

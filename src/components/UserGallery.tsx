@@ -1,74 +1,70 @@
 import React, {useEffect, useState} from "react";
 import { UserType } from "../Types/UserType";
-import UserCard from "../components/UserCard";
 import { ListType } from "../Types/ListType";
-import { Console } from "console";
+import UserCard from "../components/UserCard";
 
 const UserGallery = () => {
 
     const [users, setUsers] = useState<UserType[]>([{id: 0, name: "", email: "", password: "", tdLists:[]}]);
-    const [lists, setLists] = useState<ListType[]>([{id: 0, title: "", totalcost: 0, todoitems:[], userId:0}]);
     const [loading, setLoading] = useState<boolean>(true);
-
-    const fetchLists = async () => {
-        const request = await fetch("https://todoby.azurewebsites.net/api/List")
-        const response = await request.json();
-        console.log(response);
-        setLists(response);
-    }
-
+    const [name, setName ] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("")
+    
     const fetchUsers = async () => {
+        //const request = await fetch("https://localhost:7039/api/User");
         const request = await fetch("https://todoby.azurewebsites.net/api/User")
         const response = await request.json();
-        console.log(response);
 
+        //const request2 = await fetch("https://localhost:7039/api/List")
         const request2 = await fetch("https://todoby.azurewebsites.net/api/List")
         const response2 = await request2.json();
-        console.log(response2);        
         
         const includeLists = response.map((user:UserType) => {
-            console.log("before" + user.id)
-
             user.tdLists = response2.filter((list:ListType) => list.userId == user.id);
-            console.log(user.id)
             return user;
         });
-
-        console.log("listsl" + includeLists[0])
         setUsers(includeLists);
     }
     
     const createUser = async () => {
-        const user = {name: "zomer"}
+        const user = {name, email, password}
 
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
         };
+        //const request = await fetch("https://localhost:7039/api/User", requestOptions)
         const request = await fetch("https://todoby.azurewebsites.net/api/User", requestOptions)
     }
 
     useEffect(() => {
         fetchUsers();
         setLoading(false);
-        console.log(users[0])
     }, [loading])
 
         if(loading )
-            return <div>loading in user</div>
+            return <section className="UserGallery--loading">loading in user</section>
         else {
-            console.log(users[0])
         return (
-            <div>users: {users.map((us:UserType) => <UserCard user={us}/>)}</div>
+            <section className="UserGallery--main">
+                <form className="UserGallery--form" onSubmit={createUser}>
+                    <input className="UserGallery--input" placeholder="name" onChange={e => setName(e.target.value)}/>
+                    <input type="email" className="UserGallery--input" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}/>
+                    <input type="password" className="UserGallery--input" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
+                    <button className="Usergallery--btn" type="submit">Register</button>
+                </form>
+                 {users.map((us:UserType) => <UserCard user={us}/>)}
+            </section>
         )
         }
 }
 
 export default UserGallery;
 
-//1. all users.
-//2. click on one user.
+//check 1. all users. 
+//check 2. click on one user.
 //3. see all to do lists.
 //4. see create new to do list. 
 //5. see total cost.

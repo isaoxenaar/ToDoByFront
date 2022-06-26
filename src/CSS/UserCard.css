@@ -1,0 +1,20 @@
+.User--main{
+    width: 27%;
+    background-color: rgb(209, 170, 119);
+    color: rgb(0, 0, 0);
+    border-radius: 3em;
+    border-style:none;
+    padding: 1em;
+    margin: 1em;
+}
+.User--name {
+    font-size: 3vw;
+    color:rgb(168, 87, 32)
+}
+.User--ul {
+    font-size: 2vw;
+
+}
+.User--li {
+
+}

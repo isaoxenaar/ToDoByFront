@@ -1,26 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
+import "../CSS/ToDoGallery.css";
 import { ToDoType } from "../Types/ToDoType";
+import ToDoCard from "./ToDoCard";
 
-const ToDoGallery = () => {
-    const [todos, setToDos] = useState<ToDoType[]>();
-
-    const fetchToDos = async () => {
-        // const request = await fetch("https://localhost:7039/api/ToDo")
-        const request = await fetch("https://todoby.azurewebsites.net/api/ToDo")
-        const response = await request.json();
-        console.log(response);
-        setToDos(response);
-    }
+interface IProps {
+    id:number
+}
+ 
+const ToDoGallery:FC<IProps> = ({id}) => {
+    const [todos, setToDos] = useState<ToDoType>();
+    console.log(id + "this is id")
+    
 
     useEffect(() => {
-        fetchToDos();
+        fetchList();
     }, [])
 
         if(!todos)
             return <div>loading in todogallery</div>
         return (
-            <div>todos: {todos.map(td => <p>{td.title}</p>)}</div>
+            <section >{todos.map(td => <p>{td.title}</p>)}</section>
         )
 }
 
 export default ToDoGallery;
+
+//see to do cards. 
+//see list title as header.
+//create to do.
+//drag and drop. 
+//filter done and not done. 
+//total cost card. 

@@ -1,6 +1,5 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-
 import "../CSS/Login.css";
 
 const Login = () => {
@@ -17,7 +16,8 @@ const submit = async (e: SyntheticEvent) => {
         Email: email,
         Password: password
     }
-    const response = await fetch("https://todoby.azurewebsites.net/api/User/login", 
+    const response = await fetch("https://localhost:7039/api/Auth/login",
+    // const response = await fetch("https://todoby.azurewebsites.net/api/User/login", 
         {
             method: 'POST', 
             headers: {'Content-Type': 'application/json'},

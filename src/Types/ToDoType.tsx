@@ -7,7 +7,7 @@ type ToDoType = {
     deadline: string, 
     cost: number, 
     subitems: SubType[],
-    tdlistid: number
+    tdListId: number
 }
 
 export type { ToDoType }
