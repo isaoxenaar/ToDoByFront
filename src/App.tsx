@@ -12,6 +12,9 @@ const App = () => {
   const location:any = useLocation();
   const listId = location.state == null ? 0 : location.state.listId;
   const todoId = location.state == null ? 0 : location.state.todoId;
+  if(todoId)
+    console.log("hejhejhej" + todoId.title)
+
   return (
     <main className="App--main">
       <section className="App--title">

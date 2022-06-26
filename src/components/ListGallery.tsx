@@ -24,7 +24,6 @@ const ListGallery: FC<IProps> = ({id}) => {
         };
         const request = await fetch(`https://todoby.azurewebsites.net/api/User/getOne/${id}`, requestOptions)
         const response = await request.json();
-        console.log(response);
         setUser(response);
     }
 
@@ -32,14 +31,13 @@ const ListGallery: FC<IProps> = ({id}) => {
         const request = await fetch("https://todoby.azurewebsites.net/api/ToDo")
         const response = await request.json();
         setToDos(response);
-        console.log(response)
+        console.log("todos "  + todos.length);
         fetchLists();
     } 
 
     const fetchLists = async () => {
         const request = await fetch(`https://todoby.azurewebsites.net/api/List`)
         const response = await request.json();
-        console.log("todos "  + todos.length);
 
         response.map((list: ListType) => {
             console.log(todos.length)
@@ -57,6 +55,7 @@ const ListGallery: FC<IProps> = ({id}) => {
         else {
             setLists(response);
         }
+        setLoading(false)
     }
 
     const createList = async (e:SyntheticEvent) => {
@@ -77,7 +76,6 @@ const ListGallery: FC<IProps> = ({id}) => {
             fetchUser();
         }
         fetchToDos();
-        setLoading(false);
     }, [loading])
 
         if(loading)
