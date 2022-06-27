@@ -10,8 +10,6 @@ const [navigate, setNavigate] = useState<boolean>(false);
 
 const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log({name, email, password})
-
     const user = {
         Name: name, 
         Email: email,

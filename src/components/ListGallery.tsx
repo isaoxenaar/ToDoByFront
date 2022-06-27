@@ -24,7 +24,6 @@ const ListGallery: FC<IProps> = ({id}) => {
         };
         const request = await fetch(`https://todoby.azurewebsites.net/${id}`, requestOptions)
         const response = await request.json();
-        console.log("this is response user" + response)
         setUser(response);
     }
 
@@ -32,7 +31,6 @@ const ListGallery: FC<IProps> = ({id}) => {
         const request = await fetch("https://todoby.azurewebsites.net/api/ToDo")
         const response = await request.json();
         setToDos(response);
-        console.log("todos "  + todos.length);
         fetchLists();
     } 
     const fetchLists = async () => {
@@ -40,13 +38,14 @@ const ListGallery: FC<IProps> = ({id}) => {
         const response = await request.json();
 
         response.map((list: ListType) => {
-            console.log(todos.length)
             list.todoitems = todos.filter((todo:ToDoType) => 
                 todo.tdListId === list.id)
              return list;
         })
         if(id !== 0) {
             const byUser = response.filter((li:ListType) => li.userId === id);
+            user.tdLists = lists;
+            console.log(user.tdLists)
             setLists(byUser);
         }
         else {
@@ -66,11 +65,11 @@ const ListGallery: FC<IProps> = ({id}) => {
         };
         //const request = await fetch("https://localhost:7039/api/List", requestOptions)
         const request = await fetch("https://todoby.azurewebsites.net/api/List", requestOptions)
-        console.log(request.json());
         setLoading(!loading)
     }
 
     useEffect(() => {
+        console.log(id)
         if(id > 0) {
             fetchUser();
         }
@@ -82,7 +81,7 @@ const ListGallery: FC<IProps> = ({id}) => {
             return <div>loading in list</div>
         return (
             <section className="ListGallery--main">
-                <UserCard user={user}/>
+                <span>{user.name}'s lists</span>
                 <form className="ListGallery--form" onSubmit={createList}>
                     <input className="ListGallery--input" placeholder="title" onChange={e => setNewList({...newList, title: e.target.value})}/>
                     <button className="Listgallery--btn" type="submit">New List</button>

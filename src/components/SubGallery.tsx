@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import "../CSS/SubGallery.css";
-
 import { SubType } from "../Types/SubType";
 
 const SubGallery = () => {
@@ -21,7 +20,10 @@ const SubGallery = () => {
         if(!subs)
             return <div>loading in todogallery</div>
         return (
-            <div>subs: {subs.map(sub => <p>{sub.title}</p>)}</div>
+            <div>
+                subs: {subs.map(sub => <p>{sub.title}</p>)}
+            
+            </div>
         )
 }
 

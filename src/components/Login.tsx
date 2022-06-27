@@ -10,8 +10,6 @@ const [navigate, setNavigate] = useState<boolean>(false);
 
 const submit = async (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log({ email, password})
-
     const user = {
         Email: email,
         Password: password
@@ -25,7 +23,6 @@ const submit = async (e: SyntheticEvent) => {
             body: JSON.stringify(user)
         }
     );
-    console.log(response.json())
     setNavigate(true);
 }
 if(navigate){

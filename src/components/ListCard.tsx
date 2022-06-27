@@ -10,7 +10,6 @@ interface IProps {
 
 const ListCard:FC<IProps> = ({list}) => {
   const navigation = useNavigate();
-  console.log(list.todoitems);
   return (
         <button className="ListCard--main" onClick={() => navigation("/List", {state: {todoId: list }})}>
           <span>{list.title}</span>

@@ -4,10 +4,12 @@ import { SubType } from '../Types/SubType';
 import { ToDoType } from '../Types/ToDoType';
 
 interface IProps {
-  todo:ToDoType
+  todo:ToDoType,
+  toggle(el:ToDoType):any
 }
 
-const ToDoCard: FC<IProps> = ({todo}) => {
+const ToDoCard: FC<IProps> = ({todo, toggle}) => {
+  console.log("todo done in card" + todo.done)
   const [newSub, setNewSub] = useState<SubType>({id: 0, title: "", text:"", deadline: "", cost: 0, todoid: 0})
 
   const createSub = async (e:SyntheticEvent) => {
@@ -20,11 +22,8 @@ const ToDoCard: FC<IProps> = ({todo}) => {
     const request = await fetch("https://todoby.azurewebsites.net/api/Sub", requestOptions)
     console.log(request.json())
   };
-
   //patch price.
   //patch done.
-
-
   return (
     <section className="ToDoCard--main">
       <article>
@@ -32,7 +31,7 @@ const ToDoCard: FC<IProps> = ({todo}) => {
       <span className="ToDoCard--deadline">{todo.deadline}</span>
       <span className="ToDoCard--cost">{todo.cost}</span>
       <form>patch price == total of all subtasks</form>
-      <button className="ToDoCard-toggle" >toggle done/not done</button>
+      <button className="ToDoCard-toggle" onClick={() => toggle(todo)}>{todo.done ? "Done!" : "Not done yet..."}</button>
       </article>
       <form className="ToDoCard--form" onSubmit={createSub}>
         <input className="ToDoCard--input" placeholder="title" onChange={e => setNewSub({...newSub, title: e.target.value})}/>
