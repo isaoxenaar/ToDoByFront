@@ -1,0 +1,27 @@
+.ToDoGallery--main {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.ToDoGallery--completed, .ToDoGallery--notcompleted{
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    text-align: start;
+    border-radius: 5em;
+    padding: 1em 2em;
+    margin: 1em;
+    position: relative;
+    width: 80%;
+}
+.ToDoGallery--notcompleted {
+    background-color: rgb(255, 177, 60);
+    order: 0;
+}
+.ToDoGallery--completed {
+    background-color: rgb(212, 175, 106);
+    order: 1;
+}
