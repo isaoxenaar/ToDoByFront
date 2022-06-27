@@ -60,7 +60,6 @@ const ToDoGallery:FC<IProps> = ({id}) => {
     useEffect(() => {
         fetchList();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-
     }, [loading])
 
         if(loading)
