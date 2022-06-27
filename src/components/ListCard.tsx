@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC } from 'react';
 import "../CSS/ListCard.css";
 import { useNavigate } from 'react-router-dom';
 import { ListType } from '../Types/ListType';

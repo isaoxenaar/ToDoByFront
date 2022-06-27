@@ -6,6 +6,7 @@ type ToDoType = {
     text: string, 
     deadline: string, 
     cost: number, 
+    done: boolean,
     subitems: SubType[],
     tdListId: number
 }

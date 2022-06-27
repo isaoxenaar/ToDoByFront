@@ -16,8 +16,8 @@ const submit = async (e: SyntheticEvent) => {
         Email: email,
         Password: password
     }
-    const response = await fetch("https://localhost:7039/api/Auth/login",
-    // const response = await fetch("https://todoby.azurewebsites.net/api/User/login", 
+    //const response = await fetch("https://localhost:7039/api/Auth/login",
+     const response = await fetch("https://todoby.azurewebsites.net/api/Auth/login", 
         {
             method: 'POST', 
             headers: {'Content-Type': 'application/json'},

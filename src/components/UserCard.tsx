@@ -10,6 +10,10 @@ interface IProps {
 const UserCard: FC<IProps> = ({user}) => {
  const navigation = useNavigate();
 
+ if(user.tdLists == null) {
+    return <section>loading usercard</section>
+ }
+ else {
   return (
     <button className="User--main" onClick={() => navigation("/User", {state: {listId: user.id }})}>
     <section className="User--section">
@@ -18,6 +22,7 @@ const UserCard: FC<IProps> = ({user}) => {
     </section>
     </button >
   );
+ }
 }
 
 export default UserCard;

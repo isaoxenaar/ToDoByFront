@@ -11,7 +11,7 @@ interface IProps {
 }
 
 const ListGallery: FC<IProps> = ({id}) => {
-    const [todos, setToDos] = useState<ToDoType[]>([{id: 0, title:"", text: "", deadline: "", cost: 0, subitems: [], tdListId: 0}]);
+    const [todos, setToDos] = useState<ToDoType[]>([{id: 0, title:"", text: "", deadline: "", cost: 0, done: false, subitems: [], tdListId: 0}]);
     const [lists, setLists] = useState<ListType[]>([{id: 0, title: "", totalcost: 0, todoitems: [], userId: 0}]);
     const [user, setUser] = useState<UserType>({id: 0, name: "", password: "", email: "", tdLists: []});
     const [newList, setNewList] = useState<ListType>({id: 0, title: "", totalcost: 0, todoitems: [], userId: 0});
@@ -22,8 +22,9 @@ const ListGallery: FC<IProps> = ({id}) => {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
         };
-        const request = await fetch(`https://todoby.azurewebsites.net/api/User/getOne/${id}`, requestOptions)
+        const request = await fetch(`https://todoby.azurewebsites.net/${id}`, requestOptions)
         const response = await request.json();
+        console.log("this is response user" + response)
         setUser(response);
     }
 
@@ -34,22 +35,18 @@ const ListGallery: FC<IProps> = ({id}) => {
         console.log("todos "  + todos.length);
         fetchLists();
     } 
-
     const fetchLists = async () => {
         const request = await fetch(`https://todoby.azurewebsites.net/api/List`)
         const response = await request.json();
 
         response.map((list: ListType) => {
             console.log(todos.length)
-            list.todoitems = todos.filter((todo:ToDoType) => {
-                console.log("in todoitems filter" + todo.tdListId)
-                if(todo.tdListId == list.id)
-                  return todo;
-             })
+            list.todoitems = todos.filter((todo:ToDoType) => 
+                todo.tdListId === list.id)
+             return list;
         })
-
-        if(id != 0) {
-            const byUser = response.filter((li:ListType) => li.userId == id);
+        if(id !== 0) {
+            const byUser = response.filter((li:ListType) => li.userId === id);
             setLists(byUser);
         }
         else {
@@ -69,6 +66,8 @@ const ListGallery: FC<IProps> = ({id}) => {
         };
         //const request = await fetch("https://localhost:7039/api/List", requestOptions)
         const request = await fetch("https://todoby.azurewebsites.net/api/List", requestOptions)
+        console.log(request.json());
+        setLoading(!loading)
     }
 
     useEffect(() => {
@@ -76,6 +75,7 @@ const ListGallery: FC<IProps> = ({id}) => {
             fetchUser();
         }
         fetchToDos();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading])
 
         if(loading)
