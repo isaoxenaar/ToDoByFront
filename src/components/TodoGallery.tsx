@@ -1,4 +1,3 @@
-import { listenerCount } from "process";
 import React, { FC, SyntheticEvent, useEffect, useState } from "react";
 import "../CSS/ToDoGallery.css";
 import { ListType } from "../Types/ListType";
@@ -14,7 +13,7 @@ const ToDoGallery:FC<IProps> = ({id}) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [list, setList] = useState<ListType>({id: 0, title: "", totalcost: 0, todoitems: [], userId: 0})
     const [newToDo, setNewToDo] = useState<ToDoType>({id:0, title: "", text: "", subitems: [], deadline: "", cost: 0, done: false, tdListId: 0});
-    const [todos, setToDos] = useState<ToDoType[]>([{id:0, title: "", text: "", subitems: [], deadline: "", cost: 0, done: false, tdListId: 0}])
+    // const [todos, setToDos] = useState<ToDoType[]>([{id:0, title: "", text: "", subitems: [], deadline: "", cost: 0, done: false, tdListId: 0}])
     console.log(id + "this is id") 
 
     const fetchList = async () => {
@@ -25,8 +24,8 @@ const ToDoGallery:FC<IProps> = ({id}) => {
         };
         const request = await fetch(`https://todoby.azurewebsites.net/api/List/${id.id}`, requestOptions);
         const response = await request.json();
-        console.log(response);
         setList(response);
+        console.log(list);
         setLoading(false);
     }
 
@@ -60,6 +59,8 @@ const ToDoGallery:FC<IProps> = ({id}) => {
 
     useEffect(() => {
         fetchList();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, [loading])
 
         if(loading)

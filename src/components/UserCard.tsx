@@ -1,4 +1,4 @@
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC} from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../CSS/UserCard.css";
 import {UserType} from "../Types/UserType";

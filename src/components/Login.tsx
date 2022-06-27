@@ -25,6 +25,7 @@ const submit = async (e: SyntheticEvent) => {
             body: JSON.stringify(user)
         }
     );
+    console.log(response.json())
     setNavigate(true);
 }
 if(navigate){

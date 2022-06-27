@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect, SyntheticEvent } from 'react';
+import React, { FC, useState, SyntheticEvent } from 'react';
 import "../CSS/ToDoCard.css";
 import { SubType } from '../Types/SubType';
 import { ToDoType } from '../Types/ToDoType';

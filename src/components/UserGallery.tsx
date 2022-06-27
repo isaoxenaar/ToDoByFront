@@ -21,7 +21,7 @@ const UserGallery = () => {
         const response2 = await request2.json();
         
         const includeLists = response.map((user:UserType) => {
-            user.tdLists = response2.filter((list:ListType) => list.userId == user.id);
+            user.tdLists = response2.filter((list:ListType) => list.userId === user.id);
             return user;
         });
         setUsers(includeLists);
@@ -37,6 +37,7 @@ const UserGallery = () => {
         };
         //const request = await fetch("https://localhost:7039/api/User", requestOptions)
         const request = await fetch("https://todoby.azurewebsites.net/api/User", requestOptions)
+        console.log(request.json())
     }
 
     useEffect(() => {
