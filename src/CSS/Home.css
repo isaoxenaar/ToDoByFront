@@ -1,0 +1,11 @@
+.Home--main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.Home--text {
+    padding: 2em;
+    width: 75%;
+    color: rgb(190, 150, 98);
+}

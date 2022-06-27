@@ -25,6 +25,7 @@ const UserGallery = () => {
             return user;
         });
         setUsers(includeLists);
+        setLoading(false);
     }
     
     const createUser = async () => {
@@ -42,7 +43,7 @@ const UserGallery = () => {
 
     useEffect(() => {
         fetchUsers();
-        setLoading(false);
+        
     }, [loading])
 
         if(loading )

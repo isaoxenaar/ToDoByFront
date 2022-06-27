@@ -11,7 +11,7 @@ interface IProps {
 const ListCard:FC<IProps> = ({list}) => {
   const navigation = useNavigate();
   return (
-        <button className="ListCard--main" onClick={() => navigation("/List", {state: {todoId: list }})}>
+        <button className="ListCard--main" onClick={() => navigation("/List", {state: {listItem: list }})}>
           <span>{list.title}</span>
           <ul>{list.todoitems.map((todo:ToDoType) => <li>{todo.title}</li>)}</ul>
         </button>

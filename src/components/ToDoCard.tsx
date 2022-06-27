@@ -1,5 +1,6 @@
 import React, { FC, useState, SyntheticEvent } from 'react';
 import "../CSS/ToDoCard.css";
+import { useNavigate } from 'react-router-dom';
 import { SubType } from '../Types/SubType';
 import { ToDoType } from '../Types/ToDoType';
 
@@ -9,8 +10,8 @@ interface IProps {
 }
 
 const ToDoCard: FC<IProps> = ({todo, toggle}) => {
-  console.log("todo done in card" + todo.done)
   const [newSub, setNewSub] = useState<SubType>({id: 0, title: "", text:"", deadline: "", cost: 0, todoid: 0})
+  const navigation = useNavigate();
 
   const createSub = async (e:SyntheticEvent) => {
     const sub = {title: newSub.title, text: newSub.text, deadline: newSub.deadline, cost: newSub.cost, todoid: todo.id}
@@ -22,15 +23,14 @@ const ToDoCard: FC<IProps> = ({todo, toggle}) => {
     const request = await fetch("https://todoby.azurewebsites.net/api/Sub", requestOptions)
     console.log(request.json())
   };
-  //patch price.
-  //patch done.
+
   return (
     <section className="ToDoCard--main">
       <article>
       <span className="ToDoCard--title">{todo.title}</span>
       <span className="ToDoCard--deadline">{todo.deadline}</span>
       <span className="ToDoCard--cost">{todo.cost}</span>
-      <form>patch price == total of all subtasks</form>
+      <span>patch price == total of all subtasks</span>
       <button className="ToDoCard-toggle" onClick={() => toggle(todo)}>{todo.done ? "Done!" : "Not done yet..."}</button>
       </article>
       <form className="ToDoCard--form" onSubmit={createSub}>
@@ -40,6 +40,7 @@ const ToDoCard: FC<IProps> = ({todo, toggle}) => {
         <input className="ToDoCard--input" placeholder="cost" onChange={e => setNewSub({...newSub, cost: parseInt(e.target.value)})}/>
         <button className="Listgallery--btn" type="submit">add item</button>
       </form>  
+      <button onClick={() => navigation("/Sub", {state: {todoItem: todo }})}>see subtasks for this todo</button>
     </section>
   );
 }
@@ -47,7 +48,7 @@ const ToDoCard: FC<IProps> = ({todo, toggle}) => {
 export default ToDoCard;
 //create subtask.
 //toggle done not done.
-//patch price.
+//patch price of todo on adding of subtask.
 
 //update netlify.
 //css

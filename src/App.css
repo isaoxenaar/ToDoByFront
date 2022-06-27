@@ -1,9 +1,25 @@
-.App--main {
+.App--title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  /* background-color: rgb(68, 65, 117); */
-  /* background-color: rgba(43, 91, 153, 0.993);
-  background-image: url("https://essential.blue/wp-content/uploads/2021/07/IMG_6432-scaled-e1632669305502.jpg");
-  background-repeat: no-repeat; */
-
 }
+.App--link1, .App--link2, .App--link3, .App--link4, .App--link5 {
+  padding: 0em 1em 0em 1em;
+  text-decoration: none;
+  font-size: 2vw;
+  color:rgb(0, 0, 0);
+}
+.App--link1:hover, .App--link2:hover, .App--link3:hover, .App--link4:hover, .App--link5:hover {
+  color: rgb(190, 150, 98);
+}
+.App--link1:visited, .App--link2:visited, .App--link3:visited, .App--link4:visited, .App--link5:visited {
+  color: rgb(0, 0, 0)ck;
+}
+.App--header {
+  font-size: 3em;
+}
+
+
+
 

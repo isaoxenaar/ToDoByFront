@@ -3,7 +3,6 @@ import "../CSS/ListGallery.css";
 import { ListType } from '../Types/ListType';
 import { UserType } from '../Types/UserType';
 import { ToDoType } from '../Types/ToDoType';
-import UserCard from './UserCard';
 import ListCard from './ListCard'
 
 interface IProps {
