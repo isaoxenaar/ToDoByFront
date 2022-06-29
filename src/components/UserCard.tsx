@@ -26,4 +26,3 @@ const UserCard: FC<IProps> = ({user}) => {
 }
 
 export default UserCard;
-//change color on how well deadlines were met.

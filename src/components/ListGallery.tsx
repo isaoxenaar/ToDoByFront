@@ -64,6 +64,7 @@ const ListGallery: FC<IProps> = ({id}) => {
         };
         //const request = await fetch("https://localhost:7039/api/List", requestOptions)
         const request = await fetch("https://todoby.azurewebsites.net/api/List", requestOptions)
+        console.log(request)
         setLoading(!loading)
     }
 
@@ -93,5 +94,3 @@ const ListGallery: FC<IProps> = ({id}) => {
 }
 
 export default ListGallery;
-//if id is not empty, only lists of user, if id is empty all lists and display creater. 
-//make a card of paler shades 

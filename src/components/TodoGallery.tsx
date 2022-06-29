@@ -35,6 +35,7 @@ const ToDoGallery:FC<IProps> = ({listItem}) => {
                 todo.tdListId === list.id
         )
         list.todoitems = newToDoItems;
+        setList(list);
         setLoading(false);
     } 
 
@@ -50,6 +51,7 @@ const ToDoGallery:FC<IProps> = ({listItem}) => {
         //const request = await fetch("https://localhost:7039/api/ToDo", requestOptions)
         const request = await fetch("https://todoby.azurewebsites.net/api/ToDo", requestOptions)
         const response = request.json()
+        console.log(response)
         setLoading(false)
     }
 
