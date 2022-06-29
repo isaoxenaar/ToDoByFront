@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { UserType } from "../Types/UserType";
 import { ListType } from "../Types/ListType";
 import UserCard from "../components/UserCard";
+import AuthUser from "./AuthUser";
 
 const UserGallery = () => {
 
@@ -51,6 +52,7 @@ const UserGallery = () => {
         else {
         return (
             <section className="UserGallery--main">
+                  <AuthUser/>
                 <form className="UserGallery--form" onSubmit={createUser}>
                     <input className="UserGallery--input" placeholder="name" onChange={e => setName(e.target.value)}/>
                     <input type="email" className="UserGallery--input" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}/>

@@ -23,16 +23,17 @@ const submit = async (e: SyntheticEvent) => {
             body: JSON.stringify(user)
         }
     );
+    console.log(response.json())
     setNavigate(true);
 }
 if(navigate){
-    return <Navigate to="/"/>
+    return <Navigate to="/Users"/>
    }
 
   return (
     <main className="form-signin w-100 m-auto">
   <form onSubmit={submit}>
-    <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+    <h1 className="h3 mb-3 fw-normal">Welcome back, login and get doing.</h1>
     <div className="form-floating">
       <input type="email" className="form-control" placeholder="name@example.com"  onChange={e => setEmail(e.target.value)} />
     </div>

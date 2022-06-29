@@ -8,6 +8,7 @@ import ListGallery from './components/ListGallery';
 import Login from "./components/Login";
 import Register from "./components/Register";
 import SubGallery from './components/SubGallery';
+import Logout from "./components/Logout";
 
 const App = () => {
   const location:any = useLocation();
@@ -23,18 +24,21 @@ const App = () => {
       <Link className="App--link1" to="/">Home</Link>
       <Link className="App--link3" to="/Register">Register</Link>
       <Link className="App--link2" to="/Login">Login</Link>
+      <Link className="App--link5" to="/Logout">Logout</Link>
       <Link className="App--link4" to="/Users">Users</Link>
       </nav>
-      </section>
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/Login" element={<Login/>}></Route>
+        <Route path="/Logout" element={<Logout/>}></Route>
         <Route path="/Register" element={<Register/>}></Route>
         <Route path="/Users" element={<UserGallery/>}></Route>
         <Route path="/User" element={<ListGallery id={listId}/>}></Route>
         <Route path="/List" element={<ToDoGallery listItem={listItem}/>}></Route>
         <Route path="/Sub" element={<SubGallery todoItem={todoItem}/>}></Route>
       </Routes>
+      <footer className="App--footer"> made by me for you.</footer>
+      </section>
     </main>
   );
 }

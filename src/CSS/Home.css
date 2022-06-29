@@ -3,9 +3,15 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+    height: 80vh;
 }
 .Home--text {
     padding: 2em;
     width: 75%;
     color: rgb(190, 150, 98);
+}
+.Home--img {
+    object-fit: cover;
+    width: 80%;
+    height: 80%;
 }

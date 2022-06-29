@@ -20,6 +20,3 @@ const ListCard:FC<IProps> = ({list}) => {
 
 export default ListCard;
 
-//see list of todos.
-//click on card to go to todo gallery. 
-//create new list.

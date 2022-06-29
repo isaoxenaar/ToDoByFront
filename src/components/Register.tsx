@@ -33,7 +33,7 @@ if(navigate){
   return (
     <section className="form-signin w-100 m-auto">
     <form onSubmit={submit}>
-      <h1 className="h3 mb-3 fw-normal">Please register</h1>
+      <h1 className="h3 mb-3 fw-normal">New here? Register down below</h1>
       <div className="form-floating">
         <input className="form-control" placeholder="name" onChange={e => setName(e.target.value)}/>
       </div>
@@ -43,7 +43,7 @@ if(navigate){
       <div className="form-floating">
         <input type="password" className="form-control" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
       </div>
-      <button className="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+      <button className="w-100 btn btn-lg btn-warning" type="submit">Register</button>
     </form>
 </section>
   );

@@ -46,11 +46,3 @@ const ToDoCard: FC<IProps> = ({todo, toggle}) => {
 }
 
 export default ToDoCard;
-//create subtask.
-//toggle done not done.
-//patch price of todo on adding of subtask.
-
-//update netlify.
-//css
-//make deadline a datetime prop also in backend.
-//update models in backend with requerements.

@@ -105,15 +105,3 @@ const ToDoGallery:FC<IProps> = ({listItem}) => {
 
 export default ToDoGallery;
 
-//check. see to do cards. 
-//check. see list title as header.
-//check. create to do.
-//check. toggle done not done.
-//filter done/not done.
-
-//drag and drop. 
-//total cost card. 
-//create subs.
-//make logout.
-//fetch user through auth.
-//css.
