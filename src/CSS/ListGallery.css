@@ -1,14 +1,31 @@
-.ListGallery--lists{
+.Listgallery--main {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
-.User--name {
-    font-size: 3vw;
-    color:rgb(168, 87, 32)
+.ListGallery--intro {
+    padding: 3em;
+    text-align: center;
+    width: 100%;
+    color:#C29B57;
 }
-.User--ul {
-    font-size: 2vw;
+.ListGallery--lists {
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    padding: 2em;
 }
-.User--li {
-
+ .ListCard--item {
+    width: 100%;
+}
+.ListGallery--btn, .ListGallery--input {
+    padding: 0.3em;
+    margin: 0.3em;
+    width: 20%;
+}
+.ListGallery--btn {
+    border: 5px solid #C29B57;
+    background-color: white;
+    border-radius: 0.5em;
 }

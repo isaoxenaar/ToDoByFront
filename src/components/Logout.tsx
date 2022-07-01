@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import "../CSS/Login.css";
 
 const Logout = () => {
 
@@ -18,8 +19,8 @@ const Logout = () => {
     }, [])
 
   return (
-    <section className="Home--main">
-      <button onClick={logout}>logout</button>
+    <section className="Logout--main">
+      <button className="w-100 btn btn-lg" onClick={logout}>Logout</button>
     </section>
   );
 }

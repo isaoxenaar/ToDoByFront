@@ -43,7 +43,7 @@ if(navigate){
       <div className="form-floating">
         <input type="password" className="form-control" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
       </div>
-      <button className="w-100 btn btn-lg btn-warning" type="submit">Register</button>
+      <button className="w-100 btn btn-lg" type="submit">Register</button>
     </form>
 </section>
   );

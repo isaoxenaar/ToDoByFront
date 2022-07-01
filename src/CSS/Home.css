@@ -8,10 +8,11 @@
 .Home--text {
     padding: 2em;
     width: 75%;
-    color: rgb(190, 150, 98);
+    color: #914A16;
 }
 .Home--img {
     object-fit: cover;
-    width: 80%;
+    width: 30%;
     height: 80%;
+    border-radius: 50%;
 }

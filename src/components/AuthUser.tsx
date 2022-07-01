@@ -2,6 +2,8 @@ import React, {useState, useEffect } from "react";
 
 const AuthUser = () => {
     const [name, setName] = useState("")
+
+    
     useEffect(() => {
 
         (
@@ -15,14 +17,13 @@ const AuthUser = () => {
                 const response = await request.json();
                 console.log(request)
                 setName(response.name);
-
             }
             )()
     }, [])
 
-    return ( <div className="Auth--main">
+    return ( <section className="Auth--main">
                 hej name {name}
-            </div>
+            </section>
     )
 }
 

@@ -25,7 +25,7 @@ const SubGallery: FC<IProps>= ({todoItem}) => {
     }, [loading])
 
         if(loading)
-            return <div>loading in todogallery</div>
+            return <div className="SubGallery--loading">loading in todogallery</div>
         return (
             <div>
                 subs: {subs.map(sub => <p>{sub.title}</p>)}

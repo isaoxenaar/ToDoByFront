@@ -5,7 +5,6 @@
     position: relative;
     width: 100%;
 }
-
 .ToDoGallery--completed, .ToDoGallery--notcompleted{
     display: flex;
     flex-flow: column;
@@ -17,11 +16,21 @@
     position: relative;
     width: 80%;
 }
+.ToDoGallery--grid {
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    width: 100%;
+}
 .ToDoGallery--notcompleted {
     background-color: rgb(255, 177, 60);
     order: 0;
+    width: 100%;
 }
 .ToDoGallery--completed {
-    background-color: rgb(212, 175, 106);
+    background-color: rgb(106, 155, 212);
     order: 1;
+    width: 100%;
 }

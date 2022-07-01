@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import "../CSS/UserGallery.css";
 import { UserType } from "../Types/UserType";
 import { ListType } from "../Types/ListType";
 import UserCard from "../components/UserCard";
@@ -48,7 +49,7 @@ const UserGallery = () => {
     }, [loading])
 
         if(loading )
-            return <section className="UserGallery--loading">loading in user</section>
+            return <section className="UserGallery--loading">loading users...</section>
         else {
         return (
             <section className="UserGallery--main">
@@ -56,32 +57,16 @@ const UserGallery = () => {
                 <form className="UserGallery--form" onSubmit={createUser}>
                     <input className="UserGallery--input" placeholder="name" onChange={e => setName(e.target.value)}/>
                     <input type="email" className="UserGallery--input" placeholder="name@example.com" onChange={e => setEmail(e.target.value)}/>
-                    <input type="password" className="UserGallery--input" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
-                    <button className="Usergallery--btn" type="submit">Register</button>
+                    <input type="password" className="UserGallery--input" placeholder="password" onChange={e => setPassword(e.target.value)}/>
+                    <button className="UserGallery--btn" type="submit">Register</button>
                 </form>
+                <section className="UserGallery--grid">
                  {users.map((us:UserType) => <UserCard user={us}/>)}
+                 </section>
             </section>
         )
-        }
+     }
 }
 
 export default UserGallery;
 
-//check 1. all users. 
-//check 2. click on one user.
-//3. see all to do lists.
-//4. see create new to do list. 
-//5. see total cost.
-//6. freeze, unfreeze list.
-//6. click on a list. 
-//7. see all to do items. 
-//8. see create new to do item.
-//9. see toggle for done and not done. 
-//10. see filter for only done ones. 
-//11. see filter for deadline has passed.
-//12. delete todoitem. 
-//13. see total cost of list.
-//14. click on todoitem. 
-//15. see subitems.
-//16. see create subitems.
-//17. see toggle done.

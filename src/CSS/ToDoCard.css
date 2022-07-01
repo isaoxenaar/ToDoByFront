@@ -1,11 +1,14 @@
 .ToDoCard--main {
     display: flex;
     flex-direction: column;
-    width: 27%;
-    background-color: rgb(212, 194, 169);
+    width: 100%;
+    background-color: #CFB47D;
     color: rgb(0, 0, 0);
     border-radius: 3em;
     border-style:none;
     padding: 1em;
     margin: 1em;
+}
+.ToDoCard--main{
+
 }

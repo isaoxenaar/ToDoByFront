@@ -26,11 +26,11 @@ const ToDoCard: FC<IProps> = ({todo, toggle}) => {
 
   return (
     <section className="ToDoCard--main">
-      <article>
-      <span className="ToDoCard--title">{todo.title}</span>
-      <span className="ToDoCard--deadline">{todo.deadline}</span>
-      <span className="ToDoCard--cost">{todo.cost}</span>
-      <span>patch price == total of all subtasks</span>
+      <article className="ToDoCard--text">
+      <section className="ToDoCard--title">{todo.title}</section>
+      <section className="ToDoCard--deadline">{todo.deadline}</section>
+      <section className="ToDoCard--cost">{todo.cost}</section>
+      <section className="ToDoCard--price">total of all subtasks.</section>
       <button className="ToDoCard-toggle" onClick={() => toggle(todo)}>{todo.done ? "Done!" : "Not done yet..."}</button>
       </article>
       <form className="ToDoCard--form" onSubmit={createSub}>

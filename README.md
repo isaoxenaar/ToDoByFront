@@ -7,4 +7,4 @@ This ToDo app is made with.
 -- CSS
 -- HTML
 
-As as assignment for Salt school of Applied technology. 
+As an assignment for Salt school of Applied technology. 

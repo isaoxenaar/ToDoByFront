@@ -13,20 +13,6 @@ const ToDoGallery:FC<IProps> = ({listItem}) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [list, setList] = useState<ListType>(listItem);
     const [newToDo, setNewToDo] = useState<ToDoType>({id:0, title: "", text: "", subitems: [], deadline: "", cost: 0, done: false, tdListId: 0});
-    // const [todos, setToDos] = useState<ToDoType[]>([{id:0, title: "", text: "", subitems: [], deadline: "", cost: 0, done: false, tdListId: 0}])
-
-    // const fetchList = async () => {
-    //     const requestOptions = {
-    //         method: 'GET',
-    //         headers: { 'Content-Type': 'application/json' },
-    //         body: null
-    //     };
-    //     const request = await fetch(`https://todoby.azurewebsites.net/api/List/${todoItem.id}`, requestOptions);
-    //     const response = await request.json();
-    //     setList(response);
-    //     console.log(list);
-    //     setLoading(false);
-    // }
 
     const fetchToDos = async () => {
         const request = await fetch("https://todoby.azurewebsites.net/api/ToDo")
@@ -48,7 +34,6 @@ const ToDoGallery:FC<IProps> = ({listItem}) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(todo)
         };
-        //const request = await fetch("https://localhost:7039/api/ToDo", requestOptions)
         const request = await fetch("https://todoby.azurewebsites.net/api/ToDo", requestOptions)
         const response = request.json()
         console.log(response)
@@ -82,25 +67,19 @@ const ToDoGallery:FC<IProps> = ({listItem}) => {
             return <section className="ToDoGallery--loading">loading in todogallery</section>
         return (
             <section className="ToDoGallery--main">
-            <span>{listItem.title}</span>
+            <section className="ToDoGallery--title">{listItem.title}</section>
             <form className="ToDoGallery--form" onSubmit={createToDo}>
                 <input className="ToDoGallery--input" placeholder="title" onChange={e => setNewToDo({...newToDo, title: e.target.value})}/>
-                <input className="ListGallery--input" placeholder="deadline" onChange={e => setNewToDo({...newToDo, deadline: e.target.value})}/>
-                <input className="ListGallery--input" placeholder="text" onChange={e => setNewToDo({...newToDo, text: e.target.value})}/>
-                <input className="ListGallery--input" placeholder="cost" onChange={e => setNewToDo({...newToDo, cost: parseInt(e.target.value)})}/>
-                <button className="Listgallery--btn" type="submit">add item</button>
-            </form>            
+                <input className="ToDoGallery--input" placeholder="deadline" onChange={e => setNewToDo({...newToDo, deadline: e.target.value})}/>
+                <input className="ToDoGallery--input" placeholder="text" onChange={e => setNewToDo({...newToDo, text: e.target.value})}/>
+                <input className="ToDoGallery--input" placeholder="cost" onChange={e => setNewToDo({...newToDo, cost: parseInt(e.target.value)})}/>
+                <button className="ToDoGallery--btn" type="submit">new ToDo</button>
+            </form>     
+            <section className="ToDoGallery--grid">   
             {listItem.todoitems.map((todo:ToDoType) => {
                 return <section className={todo.done?  "ToDoGallery--completed" : "ToDoGallery--notcompleted"} id={todo.id.toString()}><ToDoCard toggle={toggleToDo} todo={todo}/></section>
             })}
-            {/* {toDoList.map(el => {
-            if(el.id === '')
-                return <section id={v4()}></section>
-            return <section className={el.done? "todo--completed" : "todo--notcompleted"} id={el.id}>
-                        <Card removeHandler={removeHandler} doneHandler={doneHandler} toDo={el}/>
-                </section>            
-            }
-        )} */}
+            </section>
             </section>
         )
 }

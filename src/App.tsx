@@ -17,6 +17,7 @@ const App = () => {
   const todoItem = location.state == null ? 0 : location.state.todoItem;
 
   return (
+    <>
     <main className="App--main">
       <section className="App--title">
       <header className="App--header">Mother of ToDo's</header>
@@ -37,9 +38,10 @@ const App = () => {
         <Route path="/List" element={<ToDoGallery listItem={listItem}/>}></Route>
         <Route path="/Sub" element={<SubGallery todoItem={todoItem}/>}></Route>
       </Routes>
-      <footer className="App--footer"> made by me for you.</footer>
       </section>
     </main>
+    <footer className="App--footer"> made by me for you.</footer>
+    </>
   );
 }
 

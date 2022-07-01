@@ -1,3 +1,26 @@
-.User--gallery {
-    background-color: transparent;
+.UserGallery--grid {
+    display: grid;
+    grid-gap: 5%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    padding: 2em;
+}
+.User--item {
+    width: 100%;
+}
+.UserGallery--btn, .UserGallery--input {
+    padding: 0.3em;
+    margin: 0.3em;
+    width: 20%;
+}
+.UserGallery--btn {
+    border: 5px solid #914A16;
+    background-color: white;
+    border-radius: 0.5em;
+}
+.UserGallery--loading {
+    color:#914A16;
+    padding-top: 3em;
+    font-size: 2em;
 }
